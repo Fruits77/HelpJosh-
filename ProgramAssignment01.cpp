@@ -32,28 +32,26 @@ int main ()
 	//Display my name and student ID
 	cout << name << endl << setw(9) << studentID << endl;
 
-	do
+
+	//Display the menu and get the choice.
+	cout << "Math Equations Menu\n\n"
+	     << "1. Almost Always 99\n"
+	     << "2. Always 3\n"
+	     << "3. Exit\n"
+	     << "Choose your poison: ";
+	cin >> poison;
+
+	bool poisonCheck = (poison <= 3 && poison >= 1);
+
+	while (!poisonCheck)
 	{
-		//Display the menu and get the choice.
-		cout << "Math Equations Menu\n\n"
-		     << "1. Almost Always 99\n"
-	             << "2. Always 3\n"
-	    	     << "3. Exit\n"
-	    	     << "Choose your poison: ";
+		cout << "You didn't chose a valid menu option.\n" << "Please enter a valid option" << endl;
 		cin >> poison;
+		bool poisonCheck = (poison <= 3 && poison >= 1);
+	}
 
-		poisoncheck = (poison <= 3 && poison >= 1);
-	
-		while (!poisoncheck)
-		{
-			cout << "You didn't chose a valid menu option.\n" << "Please enter a valid option" << endl;
-                        cin >> poison;
-                }
-	
-		if (poison = poisoncheck)
-		{
-			
-
+	if (poisonCheck)
+	{
 		//This is where we actually do something with the user's input.
 		switch (poison)
 		{
@@ -68,7 +66,7 @@ int main ()
 					cout << "Error: Please choose a number between 0 and 99.\n";
 					cin >> Choice1_Step1;
 				}
-			
+
 				//This will make the follow up actions happen based on initial conditions
 				if (Choice1_Step1 < 10)
 				{
@@ -85,30 +83,29 @@ int main ()
 					cout << "This is your second digit.\n" << MenuFour << endl;
 				}
 				break;
-			
+
 			case Choice2:
 				cout << "You chose menu option 2.\n";
 				cout << "Please pick a number.\n";
 				cin >> Choice2_Step1;
 				break;
-		
+
 			case Choice3:
 				cout << "You chose menu option 3.\n";
 				cout <<	"Thank you for playing Pick Your POISON. Better luck next time. GAME OVER!\n";
-				break;
-		
+				return;
+
 			default:
 				do
 				{
-	                        cout << "You didn't chose a valid menu option.\n" << "Please enter a valid option" << endl;
-		                cin >> poison;
+				cout << "You didn't chose a valid menu option.\n" << "Please enter a valid option" << endl;
+				cin >> poison;
 				poisoncheck = (poison <= 3 && poison >= 1);
 				}
-				while (!poisoncheck);
+				while (!poisonCheck);
 				break;
- 		}
+		}
 	}
-	} while (poison = poisoncheck);
 
 return 0;
 }
